@@ -20,7 +20,10 @@ const server = http.createServer((req, res) => {
       const bodyOfRequest = JSON.parse(bufferBody);
       console.log({ bodyOfRequest });
 
-      students.push(bodyOfRequest);
+      students.push({
+        ...bodyOfRequest,
+        id: Math.floor(Math.random() * 50).toString(),
+      });
       console.log({ students });
     });
   }
