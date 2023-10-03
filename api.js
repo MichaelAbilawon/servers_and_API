@@ -19,6 +19,9 @@ const server = http.createServer((req, res) => {
       console.log({ bufferBody });
       const bodyOfRequest = JSON.parse(bufferBody);
       console.log({ bodyOfRequest });
+
+      students.push(bodyOfRequest);
+      console.log({ students });
     });
   }
 });
