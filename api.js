@@ -2,11 +2,11 @@ const http = require("http");
 const fs = require("fs");
 
 const port = 8001;
-const students = [];
+const items = [];
 
 const server = http.createServer((req, res) => {
   console.log(req.url);
-  if (req.url === "/students" && req.method === "POST") {
+  if (req.url === "/items" && req.method === "POST") {
     const data = [];
 
     req.on("data", (chunk) => {
@@ -20,11 +20,11 @@ const server = http.createServer((req, res) => {
       const bodyOfRequest = JSON.parse(bufferBody);
       console.log({ bodyOfRequest });
 
-      students.push({
+      items.push({
         ...bodyOfRequest,
         id: Math.floor(Math.random() * 50).toString(),
       });
-      console.log({ students });
+      console.log({ items });
     });
   }
 });
